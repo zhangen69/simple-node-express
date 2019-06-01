@@ -45,12 +45,12 @@ app.get('/hello', function(req, res) {
 });
 
 // express static files
-// app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'dist')));
+// app.use(express.static(path.join(__dirname, 'views')));
 app.use('/images', express.static(path.join(__dirname, 'assets')));
-// app.use((req, res, next) =>
-//   res.sendFile(path.join(__dirname, './meal-prep/dist/index.html'))
-// );
+app.use((req, res, next) =>
+  res.sendFile(path.join(__dirname, './meal-prep/dist/index.html'))
+);
 
 // run node express with listen port
 app.listen(port, () => {
